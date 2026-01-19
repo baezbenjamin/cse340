@@ -4,3 +4,9 @@
 *:after {
   box-sizing: border-box;
 }
+
+.siteName {
+  text-decoration: none;
+  background-color: brown;
+  font-size: large;
+}
