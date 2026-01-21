@@ -5,19 +5,59 @@
   box-sizing: border-box;
 }
 
+/* Fonts */
+
+/* font-family: "Varela Round", sans-serif;
+font-weight: 400;
+
+font-family: "Merriweather", serif;
+font-weight: 700;
+
+font-family: "Roboto", sans-serif;
+font-weight: 400; */
+
+
+/* Header */
+
+header {
+  display: grid;
+  grid-template-columns: auto 80px;
+  align-items: center;
+  column-gap: 8px;
+}
+
+/* #tools {
+
+} */
+
+#tools a {
+  text-decoration: none;
+  font-size: small;
+  color: black;
+  font-family: "Varela Round", sans-serif;
+}
+
 .siteName a {
   text-decoration: none;
   font-size: 50px;
   color: black;
+  font-family: "Varela Round", sans-serif;
+  font-weight: 400;
+  /* font-style: normal; */
 }
 
 nav {
-  background-color: blue;
+  background-color: rgb(18, 18, 61);
+  font-family: "Varela Round", sans-serif;
+  height: 50px;
+  align-content: center;
 }
 
 nav ul {
   display: flex;
   justify-content: space-around;
+  margin: 0;
+  padding: 0;
 }
 
 nav ul li {
@@ -36,6 +76,16 @@ nav ul li {
   left: 2rem;
   right: 2rem;
   padding: 0;
+}
+
+h1, h2 {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+}
+
+p, main li {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
 }
 
 .hero section img {
