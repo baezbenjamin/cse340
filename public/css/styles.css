@@ -33,14 +33,14 @@ header {
 #tools a {
   text-decoration: none;
   font-size: small;
-  color: black;
+  color: rgb(18, 18, 61);
   font-family: "Varela Round", sans-serif;
 }
 
 .siteName a {
   text-decoration: none;
-  font-size: 50px;
-  color: black;
+  font-size: 30px;
+  color: rgb(18, 18, 61);
   font-family: "Varela Round", sans-serif;
   font-weight: 400;
   /* font-style: normal; */
@@ -51,6 +51,7 @@ nav {
   font-family: "Varela Round", sans-serif;
   height: 50px;
   align-content: center;
+  margin-top: 10px;
 }
 
 nav ul {
@@ -70,11 +71,12 @@ nav ul li {
   font-size: small;
   width: 150px;
   background-color: #ffffff99;
-  color: blue;
+  color: rgb(16, 63, 63);
   position: absolute;
-  top: 12rem;
-  left: 2rem;
-  right: 2rem;
+  /* bottom: 50%; */
+  top: 170px;
+  left: 5%;
+  /* right: 10%; */
   padding: 0;
 }
 
@@ -108,12 +110,23 @@ p, main li {
 .upgrades {
   display: flex;
   flex-wrap: wrap;
+  width: 300px;
+  justify-content: center;
+  margin: 0 auto;
+  /* padding: 0; */
+}
+
+figure {
+  width: 120px;
+  padding: 0;
+  margin: 10px 10px;
+  /* display: flex; */
 }
 
 .upgrades section {
-  width: 150px;
+  width: 120px;
   height: 100px;
-  background-color: aqua;
+  background-color: rgb(85, 206, 206);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -127,4 +140,32 @@ p, main li {
 
 figure {
   text-align: center;
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    color: red;
+    max-width: 800px;
+    margin: 0 auto;
+    border: solid 1px rgb(219, 13, 13);
+    border-radius: 10px;
+    background-image: url("https://raw.githubusercontent.com/baezbenjamin/cse340/refs/heads/main/public/images/site/checkerboard.jpg");
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  header, main, footer {
+    background-color: white;
+    border-radius: 10px;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    
+  }
+
+  footer {
+    
+  }
 }
