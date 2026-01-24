@@ -150,10 +150,9 @@ figure {
 
 @media only screen and (min-width: 600px) {
   body {
-    color: red;
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
-    border: solid 1px rgb(219, 13, 13);
+    border: solid 6px rgb(85, 206, 206);
     border-radius: 10px;
     background-image: url("https://raw.githubusercontent.com/baezbenjamin/cse340/refs/heads/main/public/images/site/checkerboard.jpg");
     margin-bottom: 20px;
@@ -168,8 +167,8 @@ figure {
 
   header {
     height: 50px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
   }
 
   .first-title {
@@ -185,9 +184,8 @@ figure {
   }
 
   footer {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    background-color: white;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
   }
 
   footer p {
@@ -195,10 +193,77 @@ figure {
     align-content: center;
     margin: 0;
     margin-left: 10px;
-    /* padding: 0; */
   }
 
   p, h2, span {
     margin-left: 10px;
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: 150px 150px 150px 150px;
+    grid-template-rows: auto auto auto auto;
+  }
+
+  .first-title {
+    grid-column: 1 / 5;
+    grid-row: 1 / 2;
+  }
+
+  .hero {
+    /* width: 500px; */
+    grid-column: 1 / 5;
+    grid-row: 2 / 3;
+    margin: 0 auto;
+  }
+
+  .hero img {
+    width: 500px;
+  }
+
+  .third-title {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+  }
+
+  .upgrades {
+    grid-column: 1 / 3;
+    grid-row: 4 / 5;
+  }
+
+  .second-title {
+    grid-column: 3 / 5;
+    grid-row: 3 / 4;
+  }
+
+  .reviews {
+    grid-column: 3 / 5;
+    grid-row: 4 / 5;
+  }
+
+  .hero {
+    width: 600px;
+  }
+
+  .hero section {
+    /* font-size: small;
+    width: 150px;
+    background-color: #ffffff99;
+    color: rgb(16, 63, 63);
+    position: absolute;
+    top: 170px; */
+    left: inherit;
+    /* padding: 0; */
+  }
+}
+
+@media only screen and (min-width: 800px) {
+
+  body {
+    max-width: 800px;
+  }
+
+  main {
+    grid-template-columns: 200px 200px 200px 200px;
   }
 }
