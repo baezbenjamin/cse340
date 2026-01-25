@@ -43,7 +43,6 @@ header {
   color: rgb(18, 18, 61);
   font-family: "Varela Round", sans-serif;
   font-weight: 400;
-  /* font-style: normal; */
 }
 
 nav {
@@ -73,10 +72,8 @@ nav ul li {
   background-color: #ffffff99;
   color: rgb(16, 63, 63);
   position: absolute;
-  /* bottom: 50%; */
   top: 170px;
   left: 5%;
-  /* right: 10%; */
   padding: 0;
 }
 
@@ -85,7 +82,9 @@ h1, h2 {
   font-weight: 700;
 }
 
-
+.first-title {
+  font-size: 28px;
+}
 
 p, main li {
   font-family: "Roboto", sans-serif;
@@ -115,21 +114,19 @@ p, main li {
   width: 300px;
   justify-content: center;
   margin: 0 auto;
-  /* padding: 0; */
 }
 
 figure {
   width: 120px;
   padding: 0;
   margin: 10px 10px;
-  /* display: flex; */
 }
 
 main {
   background-color: white;
 }
 
-.upgrades section {
+.upgrades div {
   width: 120px;
   height: 100px;
   background-color: rgb(85, 206, 206);
@@ -139,8 +136,7 @@ main {
   border: solid 1px black;
 }
 
-.upgrades section img {
-  /* width: 50px; */
+.upgrades div img {
   height: 70px;
 }
 
@@ -211,7 +207,6 @@ figure {
   }
 
   .hero {
-    /* width: 500px; */
     grid-column: 1 / 5;
     grid-row: 2 / 3;
     margin: 0 auto;
@@ -246,14 +241,7 @@ figure {
   }
 
   .hero section {
-    /* font-size: small;
-    width: 150px;
-    background-color: #ffffff99;
-    color: rgb(16, 63, 63);
-    position: absolute;
-    top: 170px; */
     left: inherit;
-    /* padding: 0; */
   }
 }
 
