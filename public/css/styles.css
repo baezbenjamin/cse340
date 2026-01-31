@@ -61,9 +61,12 @@ nav ul {
 }
 
 nav ul li {
-  text-decoration: none;
-  color: white;
   list-style: none;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
 }
 
 .hero section {
@@ -143,6 +146,51 @@ main {
 figure {
   text-align: center;
 }
+
+#inv-display {
+  margin: 0;
+  padding: 0;
+  justify-self: center;
+}
+
+#inv-display li {
+  list-style: none;
+  text-align: center;
+  border: solid 1px rgb(112, 107, 107);
+  border-radius: 5px;
+  width: 200px;
+  align-items: center;
+  overflow: hidden;
+  margin: 10px;
+}
+
+#inv-display li hr {
+  border: solid 1px rgb(112, 107, 107);
+}
+
+#inv-display li img {
+  border-radius: 5px;
+  width: 200px;
+}
+
+.namePrice h2 {
+  font-size: 16px;
+  /* align-content: center; */
+}
+
+.namePrice span {
+  font-size: 16px;
+}
+
+.detail-page {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.detail-page img {
+  max-width: 300px;
+}
+
 
 @media only screen and (min-width: 600px) {
   body {
@@ -243,6 +291,20 @@ figure {
   .hero section {
     left: inherit;
   }
+
+  h1 {
+    grid-column: 1 / 5;
+    grid-row: 1 / 2;
+    margin-left: 10px;
+  }
+
+  #inv-display {
+    max-width: 440px;
+    grid-column: 1 / 5;
+    grid-row: 2 / 5;
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 @media only screen and (min-width: 800px) {
@@ -253,5 +315,13 @@ figure {
 
   main {
     grid-template-columns: 200px 200px 200px 200px;
+  }
+
+  #inv-display {
+    max-width: 680px;
+    grid-column: 1 / 5;
+    grid-row: 2 / 5;
+    display: flex;
+    flex-wrap: wrap;
   }
 }
