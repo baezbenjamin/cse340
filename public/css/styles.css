@@ -191,6 +191,83 @@ figure {
   max-width: 300px;
 }
 
+form {
+  width: 300px;
+  background-color: rgb(34, 54, 167);
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin: 10px;
+  padding: 10px;
+  color: white;
+  font-family: "Varela Round", sans-serif;
+  justify-self: center;
+}
+
+/* top | right | bottom | left */
+
+label {
+  /* margin-left: 20px; */
+  margin: 10px auto 10px 20px;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+  width: 80%;
+  /* margin-left: 20px; */
+  margin: 5px auto 10px 20px;
+}
+
+.login-button {
+  border: none;
+  width: 70px;
+  color: rgb(18, 18, 61);
+  border-radius: 10px;
+  background-color: white;
+  font-size: 12px;
+  /* justify-self: center; */
+  margin-left: 115px;
+  /* margin-right: 115px; */
+  margin-bottom: 10px;
+}
+
+.sign-up {
+  margin: 0;
+  /* width: 80%;
+  margin-left: 10%;
+  margin-right: 10%; */
+  display: flex;
+  justify-content: center;
+  column-gap: 5px;
+}
+
+.sign-up a {
+  color: white;
+}
+
+.register-button {
+  margin-top: 5px;
+  margin-left: 20px;
+  border: none;
+  width: 80px;
+  color: rgb(18, 18, 61);
+  border-radius: 10px;
+  background-color: white;
+  font-size: 16px;
+}
+
+input:required:invalid, input:focus:invalid {
+  background-color: #ff000099;
+}
+
+input:required:valid {
+  background-color: #00800099;
+}
+
+form span {
+  font-family: "Roboto", sans-serif;
+  font-size: smaller;
+  margin-left: 20px;
+  display: block;
+}
 
 @media only screen and (min-width: 600px) {
   body {
@@ -304,6 +381,11 @@ figure {
     grid-row: 2 / 5;
     display: flex;
     flex-wrap: wrap;
+  }
+
+  form {
+    grid-column: 2 / 4;
+    grid-row: 2 / 5;
   }
 }
 
