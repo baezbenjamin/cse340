@@ -210,7 +210,7 @@ label {
   margin: 10px auto 10px 20px;
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"], input[type="email"], input[type="password"], select, textarea, input[type="number"] ,input[type="submit"] {
   width: 80%;
   /* margin-left: 20px; */
   margin: 5px auto 10px 20px;

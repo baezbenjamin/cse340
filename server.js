@@ -16,8 +16,13 @@ const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute")
 const utilities = require("./utilities/")
 const detailRoute = require("./routes/detailRoute")
+const errorRoute = require("./routes/errorRoute")
 const accountRoute = require("./routes/accountRoute")
 const bodyParser = require("body-parser")
+const cookieParser = require("cookie-parser")
+const managementRoute = require("./routes/managementRoute")
+const addClassificationRoute = require("./routes/addclassificationRoute")
+const addInventoryRoute = require("./routes/addinventoryRoute")
 
 /* ***********************
  * Middleware
@@ -42,6 +47,10 @@ app.use(function(req, res, next){
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
+app.use(cookieParser())
+
+app.use(utilities.checkJWTToken)
+
 /* ***********************
  * View Engine and Templates
  *************************/
@@ -59,8 +68,13 @@ app.get("/", utilities.handleErrors(baseController.buildHome))
 app.use("/inv", inventoryRoute)
 // Detail routes
 app.use("/inv", detailRoute)
+app.use("/", errorRoute)
 // Account routes
 app.use("/account", accountRoute)
+// Inventory Management Route
+app.use("/inv", managementRoute)
+app.use("/inv/management", addClassificationRoute)
+app.use("/inv/management", addInventoryRoute)
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
