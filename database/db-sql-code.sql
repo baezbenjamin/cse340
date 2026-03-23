@@ -236,3 +236,11 @@ VALUES   (
     'White',
     5
   );
+
+UPDATE inventory
+SET inv_description = REPLACE(inv_description, 'small interiors', 'a huge interior');
+
+UPDATE inventory
+SET inv_image = REPLACE(inv_image, 'ges/', 'ges/vehicles/');
+UPDATE inventory
+SET inv_thumbnail = REPLACE(inv_thumbnail, 'ges/', 'ges/vehicles/');
