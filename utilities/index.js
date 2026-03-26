@@ -57,6 +57,28 @@ Util.buildClassificationGrid = async function(data){
   return grid
 }
 
+/* **************************************
+* Build the detail page of Vehicle
+* ************************************ */
+Util.buildDetailPage = async function(data){
+  let grid = ''
+  if(data.length > 0){
+    grid += '<div class="detail-page">'
+    grid += '<img src="' + data[0].inv_image
+      + '" alt="Image of '+ data[0].inv_make + ' ' + data[0].inv_model 
+      + ' on CSE Motors" />'
+    grid += '<h2>' + data[0].inv_make + ' ' + data[0].inv_model + ' Details</h2>'
+    grid += '<p><strong>Price:</strong> $' + new Intl.NumberFormat('en-US').format(data[0].inv_price) + '</p>'
+    grid += '<p><strong>Description:</strong> ' + data[0].inv_description + '</p>'
+    grid += '<p><strong>Color:</strong> ' + data[0].inv_color + '</p>'
+    grid += '<p><strong>Miles:</strong> ' + Intl.NumberFormat('en-US').format(data[0].inv_miles) + '</p>'
+    grid += '</div>'
+  } else { 
+    grid += '<p class="notice">Sorry, no matching vehicles could be found.</p>'
+  }
+  return grid
+}
+
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 
