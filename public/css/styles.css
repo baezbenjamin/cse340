@@ -179,6 +179,62 @@ figure {
   max-width: 300px;
 }
 
+form {
+  width: 300px;
+  background-color: rgb(34, 54, 167);
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin: 10px;
+  padding: 10px;
+  color: white;
+  font-family: "Varela Round", sans-serif;
+  justify-self: center;
+}
+
+/* top | right | bottom | left */
+
+label {
+  margin: 10px auto 10px 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea,
+input[type="number"],
+input[type="submit"] {
+  width: 80%;
+  margin: 5px auto 10px 20px;
+}
+
+.login-button {
+  border: none;
+  width: 70px;
+  color: rgb(18, 18, 61);
+  border-radius: 10px;
+  background-color: white;
+  font-size: 12px;
+  margin-left: 115px;
+  margin-bottom: 10px;
+}
+
+form a {
+  color: white;
+}
+
+.car-image {
+  max-width: 300px;
+  display: flex;
+  justify-self: center;
+}
+
+.error-image {
+  max-width: 300px;
+  display: flex;
+  justify-self: center;
+}
+
 @media only screen and (min-width: 600px) {
   body {
     max-width: 600px;
@@ -221,7 +277,7 @@ figure {
     border-bottom-right-radius: 3px;
   }
 
-  footer p {
+  footer p, footer a {
     height: 50px;
     align-content: center;
     margin: 0;
@@ -296,6 +352,36 @@ figure {
     display: flex;
     flex-wrap: wrap;
   }
+
+  form {
+    grid-column: 2 / 4;
+    grid-row: 2 / 5;
+  }
+
+  .car-image {
+    max-width: 300px;
+    grid-column: 1 / 3;
+    display: flex;
+    align-self: center;
+  }
+
+  .characteristics {
+    max-width: 300px;
+    grid-column: 3 / 5;
+    margin-right: 10px;
+  }
+
+  .error-image {
+    max-width: 500px;
+    grid-column: 1 / 5;
+    display: flex;
+    align-self: center;
+  }
+
+  .message {
+    margin-left: 10px;
+
+  }
 }
 
 @media only screen and (min-width: 800px) {
@@ -314,5 +400,9 @@ figure {
   grid-row: 2 / 5;
   display: flex;
   flex-wrap: wrap;
+  }
+
+  .characteristics {
+    max-width: 400px;
   }
 }
