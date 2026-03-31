@@ -235,6 +235,20 @@ form a {
   justify-self: center;
 }
 
+.management-cont {
+  margin-left: 20px;
+}
+
+.management-cont a {
+  display: block;
+  padding: 10px;
+}
+
+.notice {
+  font-style: italic;
+  color: rgb(196, 8, 8);
+}
+
 @media only screen and (min-width: 600px) {
   body {
     max-width: 600px;
@@ -381,6 +395,14 @@ form a {
   .message {
     margin-left: 10px;
 
+  }
+
+  .management-cont {
+    grid-column: 1 / 5;
+  }
+
+  #messages {
+    grid-column: 1 / 5;
   }
 }
 
