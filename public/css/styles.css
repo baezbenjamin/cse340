@@ -249,6 +249,24 @@ form a {
   color: rgb(196, 8, 8);
 }
 
+.manage-inventory {
+  margin-left: 10px;
+}
+
+.manage-inventory label {
+  margin-left: 10px
+}
+
+.manage-inventory select {
+  width: 200px;
+  margin: 0;
+}
+
+.manage-inventory table {
+  margin-top: 10px;
+  margin-left: 10px
+}
+
 @media only screen and (min-width: 600px) {
   body {
     max-width: 600px;
@@ -404,6 +422,14 @@ form a {
   #messages {
     grid-column: 1 / 5;
   }
+
+  .manage-inventory {
+    grid-column: 1 / 5;
+  }
+
+  /* .manage-inventory select, .manage-inventory table {
+    margin-left: 10px;
+  } */
 }
 
 @media only screen and (min-width: 800px) {
