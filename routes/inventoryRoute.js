@@ -44,4 +44,10 @@ router.post(
     invValidate.checkUpdateData,
     utilities.handleErrors(invController.updateInventory))
 
+router.get("/delete/:vehicleId", utilities.handleErrors(invController.deleteInventoryView))
+
+router.post(
+    "/delete/",
+    utilities.handleErrors(invController.deleteItem))
+
 module.exports = router;
