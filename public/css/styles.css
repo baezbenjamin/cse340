@@ -9,9 +9,16 @@
 
 header {
   display: grid;
-  grid-template-columns: auto 80px;
+  grid-template-columns: auto 200px;
   align-items: center;
   column-gap: 8px;
+}
+
+#tools {
+  display: flex;
+  gap: 10px;
+  margin-right: 10px;
+  justify-self: center;
 }
 
 #tools a {
@@ -267,6 +274,40 @@ form a {
   margin-left: 10px
 }
 
+.edit-account form {
+  width: 300px;
+  background-color: transparent;
+  color: black;
+  border: none;
+  justify-self: left;
+  margin: 0;
+  padding: 0;
+}
+
+.edit-account button {
+  background-color: rgb(34, 54, 167);
+  color: white;
+  margin-left: 10px;
+}
+
+.password-pattern {
+  font-style: italic;
+  font-size: smaller;
+}
+
+.edit-account label,
+.edit-account input[type="text"],
+.edit-account input[type="email"],
+.edit-account input[type="password"] {
+  width: 250px;
+  margin: 5px auto 10px 10px;
+}
+
+.edit-account p {
+  width: 570px;
+}
+
+
 @media only screen and (min-width: 600px) {
   body {
     max-width: 600px;
@@ -427,9 +468,25 @@ form a {
     grid-column: 1 / 5;
   }
 
-  /* .manage-inventory select, .manage-inventory table {
+  .management-account {
+    grid-column: 1 / 5;
+  }
+
+  .management-account a {
     margin-left: 10px;
-  } */
+  }
+
+  .management-account h3 {
+    margin-left: 10px;
+  }
+
+  .edit-account {
+    grid-column: 1 / 5;
+  }
+
+  .edit-account form {
+    width: 600px;
+  }
 }
 
 @media only screen and (min-width: 800px) {
@@ -452,5 +509,9 @@ form a {
 
   .characteristics {
     max-width: 400px;
+  }
+
+  .edit-account form {
+    width: 800px;
   }
 }

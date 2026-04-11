@@ -144,4 +144,16 @@ Util.checkJWTToken = (req, res, next) => {
   }
  }
 
+/* ****************************************
+ *  Check Account Type
+ * ************************************ */
+Util.checkAccountType = (req, res, next) => {
+  if (res.locals.accountData.account_type === "Client") {
+    req.flash("notice", "Access Denied, please log in with a different account.")
+    return res.redirect("/account/login")
+  } else {
+    next()
+  }
+}
+
 module.exports = Util

@@ -27,4 +27,13 @@ router.post(
 
 router.get("/", utilities.checkLogin, utilities.handleErrors(accountController.buildManagement))
 
+router.get("/update/:account_id", utilities.handleErrors(accountController.updateAccountView))
+
+router.post(
+  "/update/",
+  // regValidate.registationRules(),
+  // regValidate.checkUpdateData,
+  utilities.handleErrors(accountController.updateAccountInformation)
+)
+
 module.exports = router;

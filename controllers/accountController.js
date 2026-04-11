@@ -123,11 +123,56 @@ async function accountLogin(req, res) {
 * *************************************** */
 async function buildManagement(req, res, next) {
   let nav = await utilities.getNav()
+  let permissionCheck = 0
+  let accountType = res.locals.accountData.account_type
+  if (accountType === "Client") {
+    permissionCheck = 0
+  } else {
+    permissionCheck = 1
+  }
   res.render("account/management", {
     title: "Account Management",
     nav,
-    errors: null
+    errors: null,
+    userfirstname: res.locals.accountData.account_firstname,
+    permissionCheck
   })
 }
 
-module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildManagement }
+async function updateAccountView(req, res, next) {
+  const account_id = parseInt(req.params.account_id)
+  const accountData = await accountModel.getAccountInfo(account_id)
+  let nav = await utilities.getNav()
+  res.render("./account/update", {
+    title: "Edit Account",
+    nav,
+    errors: null,
+    account_id,
+    account_firstname:accountData[0].account_firstname,
+    account_lastname:accountData[0].account_lastname,
+    account_email:accountData[0].account_email 
+  })
+}
+
+async function updateAccountInformation(req, res) {
+  let nav = await utilities.getNav()
+  const { account_firstname, account_lastname, account_email, account_id } = req.body
+  const updateResult = await accountModel.updateAccountInformation(account_id, account_firstname, account_lastname, account_email)
+  if (updateResult) {
+    req.flash("notice", "Congratulations, your information has been updated.")
+    res.redirect("/account/")
+  } else {
+    req.flash("notice", "Sorry, the process failed.")
+    res.status(501).render("./account/update", {
+      title: "Edit Account",
+      nav,
+      errors: null,
+      account_id,
+      account_firstname,
+      account_lastname,
+      account_email
+    })
+  }
+}
+
+module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildManagement, updateAccountView, updateAccountInformation }

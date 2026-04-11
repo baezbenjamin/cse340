@@ -1,0 +1,54 @@
+<!-- Content Heading -->
+<% if (title) { %>
+<h1> <%= title %> </h1>
+<% } else {
+    res.redirect('/')
+} %>
+
+<!-- Message Block -->
+<%- messages() %>
+
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error=> { %>
+   <li><%= error.msg %></li>
+<% }) %>
+  </ul>
+<% } %>
+
+<!-- Content -->
+<div class="edit-account">
+  <form action="/account/update" method="post" id="updateAccountForm">
+    <label for="account_firstname">First name:</label><br>
+    <input type="text" name="account_firstname" id="account_firstname" required value="<%= locals.account_firstname %>"><br>
+    <label for="account_lastname">Last name:</label><br>
+    <input type="text" name="account_lastname" id="account_lastname" required value="<%= locals.account_lastname %>"><br>
+    <label for="account_email">Email Address:</label><br>
+    <input type="email" name="account_email" id="account_email" required placeholder="Enter a valid email address"
+      value="<%= locals.account_email %>"><br>
+
+    <input type="hidden" name="account_id" <% if(locals.account_id) { %>
+    value="<%= locals.account_id %>"
+      <% } %>>
+
+    <button disabled type="submit">Update</button>
+  </form>
+
+  <h2>Update Password</h2>
+  <p>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</p>
+  <p>*note your original password will be changed</p>
+  <form action="/account/update" method="post" id="updatePasswordForm">
+    <label for="account_password">Password:</label><br>
+    <input type="password" name="account_password" id="account_password"
+      pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" required><br>
+    <span class="password-pattern">Passwords must be at least 12 characters and contain at least 1 number, 1 capital
+      letter and 1 special character</span><br>
+    <input type="hidden" name="inv_id" <% if(locals.account_id) { %>
+    value="<%= locals.account_id %>"
+      <% } %>>
+    <button disabled type="submit">Change Password</button>
+  </form>
+
+</div>
+
+<script src="../../js/account-update.js"></script>
