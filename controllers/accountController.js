@@ -119,12 +119,17 @@ async function accountLogin(req, res) {
 }
 
 /* ****************************************
-*  Deliver registration view
+*  Deliver account management view
 * *************************************** */
 async function buildManagement(req, res, next) {
   let nav = await utilities.getNav()
+
   let permissionCheck = 0
   let accountType = res.locals.accountData.account_type
+
+  const account_id = parseInt(res.locals.accountData.account_id)
+  const accountData = await accountModel.getAccountInfo(account_id)
+
   if (accountType === "Client") {
     permissionCheck = 0
   } else {
@@ -134,11 +139,14 @@ async function buildManagement(req, res, next) {
     title: "Account Management",
     nav,
     errors: null,
-    userfirstname: res.locals.accountData.account_firstname,
+    userfirstname: accountData[0].account_firstname,
     permissionCheck
   })
 }
 
+/* ****************************************
+*  Deliver update account view
+* *************************************** */
 async function updateAccountView(req, res, next) {
   const account_id = parseInt(req.params.account_id)
   const accountData = await accountModel.getAccountInfo(account_id)
@@ -154,6 +162,9 @@ async function updateAccountView(req, res, next) {
   })
 }
 
+/* ****************************************
+*  Process update account information
+* *************************************** */
 async function updateAccountInformation(req, res) {
   let nav = await utilities.getNav()
   const { account_firstname, account_lastname, account_email, account_id } = req.body
@@ -175,4 +186,26 @@ async function updateAccountInformation(req, res) {
   }
 }
 
-module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildManagement, updateAccountView, updateAccountInformation }
+/* ****************************************
+*  Process update account password
+* *************************************** */
+async function updateAccountPassword(req, res) {
+  const { account_password, account_id } = req.body
+  let hashedPassword
+  try {
+    hashedPassword = await bcrypt.hashSync(account_password, 10)
+  } catch (error) {
+    req.flash("notice", 'Sorry, there was an error processing the password change.')
+    res.redirect(`/account/update/${account_id}`)
+  }
+  const changeResult = await accountModel.updateAccountPassword(account_id, hashedPassword)
+  if (changeResult) {
+  req.flash("notice", "Congratulations,your password has been changed.")
+  res.redirect("/account/")
+  } else {
+    req.flash("notice", "Sorry, the change process failed.")
+    res.redirect(`/account/update/${account_id}`)
+  }
+}
+
+module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildManagement, updateAccountView, updateAccountInformation, updateAccountPassword }

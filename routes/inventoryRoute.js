@@ -37,18 +37,23 @@ router.post(
     invValidate.checkInventoryData,
     utilities.handleErrors(invController.addInventory));
 
+// Route to get inventory for the select list
 router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
 
+// Route to build the edit view of a vehicle
 router.get("/edit/:vehicleId", utilities.checkAccountType, utilities.handleErrors(invController.editInventoryView))
 
+// Process to update the data of a vehicle
 router.post(
     "/update/",
     invValidate.inventoryRules(),
     invValidate.checkUpdateData,
     utilities.handleErrors(invController.updateInventory))
 
+// Route to build the confirmation delete view of a vehicle
 router.get("/delete/:vehicleId", utilities.checkAccountType, utilities.handleErrors(invController.deleteInventoryView))
 
+// Process to delete inventory
 router.post(
     "/delete/",
     utilities.handleErrors(invController.deleteItem))

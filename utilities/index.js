@@ -156,4 +156,9 @@ Util.checkAccountType = (req, res, next) => {
   }
 }
 
+Util.logoutProcess = (req, res, next) => {
+  res.clearCookie("jwt")
+  res.redirect("/")
+}
+
 module.exports = Util
