@@ -9,7 +9,7 @@
 
 header {
   display: grid;
-  grid-template-columns: auto 200px;
+  grid-template-columns: auto 220px;
   align-items: center;
   column-gap: 8px;
 }
@@ -307,6 +307,37 @@ form a {
   width: 570px;
 }
 
+#announcement-display div {
+  margin: 1rem 8px;
+  margin-right: 20px;
+  border: 1px solid #999;
+  background-color: #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  display: grid;
+  height: auto;
+  grid-template-areas:
+    "picture name"
+    "picture description"
+    "picture seemore";
+}
+
+#announcement-display div h2 {
+  margin: 1%;
+  grid-area: name;
+  font-size: smaller;
+}
+
+#announcement-display div img {
+  width: 100%;
+  grid-area: picture;
+}
+
+#announcement-display div p {
+  margin: 1%;
+  grid-area: description;
+  font-size: smaller;
+}
 
 @media only screen and (min-width: 600px) {
   body {
@@ -487,6 +518,27 @@ form a {
   .edit-account form {
     width: 600px;
   }
+
+  #announcement-display {
+    grid-column: 1 / 5;
+  }
+  
+  #announcement-display div {
+    height: auto;
+  }
+
+  #announcement-display div h2 {
+    margin: 2%;
+    grid-area: name;
+    font-size: medium;
+  }
+
+  #announcement-display div p {
+    margin: 2%;
+    grid-area: description;
+    font-size: medium;
+  }
+  
 }
 
 @media only screen and (min-width: 800px) {
@@ -513,5 +565,21 @@ form a {
 
   .edit-account form {
     width: 800px;
+  }
+
+  #announcement-display div {
+    height: 200px;
+  }
+
+  #announcement-display div h2 {
+    margin: 2%;
+    grid-area: name;
+    font-size: 18px;
+  }
+
+  #announcement-display div p {
+    margin: 2%;
+    grid-area: description;
+    font-size: 16px;
   }
 }

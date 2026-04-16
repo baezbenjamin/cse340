@@ -161,4 +161,25 @@ Util.logoutProcess = (req, res, next) => {
   res.redirect("/")
 }
 
+Util.buildAnnouncementGrid = async function(data){
+  let grid
+  console.log(data)
+  if(data.length > 0){
+    grid = '<section id="announcement-display">'
+    data.forEach(announcement => {
+      grid += '<div>'
+      grid += '<img src="' + announcement.announcement_image
+        + '" alt="Image of ' + announcement.announcement_title + '">'
+      grid += '<h2>' + announcement.announcement_title + '</h2>'
+      grid += '<p>' + announcement.announcement_heading + '</p>'
+      grid += '<a href="#">See more</a>'
+      grid += '</div>'
+    })
+    grid += '</section>'
+  } else {
+    grid += `<p class="notice">There aren't announcements to see </p>`
+  }
+  return grid
+}
+
 module.exports = Util
